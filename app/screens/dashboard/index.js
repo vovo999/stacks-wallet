@@ -58,16 +58,16 @@ const Header = ({ ...rest }) => {
 };
 const tableHeadItems = [
   {
-    label: "Date",
+    label: "日期",
     width: 52
   },
   {
-    label: "Details",
+    label: "细节",
     width: 60,
     flexGrow: 1
   },
   {
-    label: "Amount",
+    label: "金额",
     mr: 4
   }
 ];
@@ -88,12 +88,12 @@ const NewWallet = ({ doRefreshData, fetching, ...rest }) => (
       justifyContent="center"
     >
       <Type pb={5} fontSize={5}>
-        Welcome to the Stacks Wallet
+        欢迎使用Stacks钱包
       </Type>
       <Type pb={2}>
-        You don't have any balance or any associated transactions.
+        未有转账记录
       </Type>
-      <Type pb={5}>Click receive to view your STX address and QR code.</Type>
+      <Type pb={5}>点击收款查看STX地址和二维码</Type>
       <ButtonCombo
         pt={2}
         primary={{
@@ -129,13 +129,13 @@ const Dashboard = ({
         <>
           <Balance />
           <TxList
-            title="Transaction history"
+            title="转账记录"
             contentHeader={<TableHeader items={tableHeadItems} />}
             action={{
               label: fetching ? (
                 <Spinner stroke={4} size={20} color="currentColor" />
               ) : (
-                "Refresh"
+                "刷新"
               ),
               onClick: fetching ? () => null : doRefreshData
             }}

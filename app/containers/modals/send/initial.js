@@ -20,10 +20,10 @@ const InitialScreen = ({
   <Wrapper hide={hide}>
     <Field
       name="recipient"
-      label="Recipient"
+      label="收款地址"
       error={state.errors.recipient}
       onChange={e => handleChange(e, setState, "recipient")}
-      placeholder="Enter a Stacks address"
+      placeholder="输入STX地址"
       value={state.values.recipient}
       autofocus
     />
@@ -31,7 +31,7 @@ const InitialScreen = ({
     <Field
       name="amount"
       overlay="STX"
-      label="Amount to send"
+      label="金额"
       onChange={e => handleChange(e, setState, "amount")}
       type="number"
       error={state.errors.amount}
@@ -41,11 +41,11 @@ const InitialScreen = ({
     />
     <Field
       name="memo"
-      label="Note"
+      label="备注"
       is="textarea"
       value={state.values.memo}
       onChange={e => handleChange(e, setState, "memo")}
-      placeholder="Write an optional message..."
+      placeholder="填写备注"
       error={state.errors.memo}
     />
     {children
@@ -54,7 +54,7 @@ const InitialScreen = ({
             props: {
               disabled: state.processing
             },
-            label: state.processing ? "Loading..." : "Continue",
+            label: state.processing ? "加载中..." : "继续",
             action: () =>
               state.processing ? null :
                 handleValidation(
@@ -68,7 +68,7 @@ const InitialScreen = ({
                 )
           },
           secondary: {
-            label: "Cancel",
+            label: "取消",
             action: hide
           }
         })

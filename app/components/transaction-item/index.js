@@ -79,11 +79,12 @@ const Date = ({ date, ...rest }) =>
     >
       <Type fontSize={1} fontWeight="bold">
         {dayjs(date)
-          .format("MMM")
+          .format("MM")
           .toUpperCase()}
+          月
       </Type>
       <Type color="hsl(205, 30%, 70%)" fontSize={3}>
-        {dayjs(date).format("DD")}
+        {dayjs(date).format("DD")}日
       </Type>
     </Flex>
   ) : null;
@@ -92,20 +93,20 @@ const getTitle = (item, stx) => {
   if (operation === "TOKEN_TRANSFER") {
     {
       if (sender === stx) {
-        return `Sent Stacks`;
+        return `转出`;
       } else {
-        return `Received Stacks`;
+        return `转入`;
       }
     }
   }
 
   switch (operation) {
     case "SENT":
-      return "Sent Stacks";
+      return "转出";
     case "RECEIVED":
-      return "Received Stacks";
+      return "转入";
     case "UNLOCK":
-      return "Stacks Unlocked";
+      return "解锁";
     default:
       return operation;
   }
@@ -117,17 +118,17 @@ const getSubtitle = (item, stx) => {
   if (operation === "TOKEN_TRANSFER") {
     {
       if (sender === stx) {
-        return `To ${recipient}`;
+        return `发至 ${recipient}`;
       } else {
-        return `From ${sender}`;
+        return `源自 ${sender}`;
       }
     }
   }
   if (operation === "SENT") {
-    return `To ${recipient}`;
+    return `发至 ${recipient}`;
   }
   if (operation === "RECEIVED") {
-    return `From ${btcToStx(senderBitcoinAddress)}`;
+    return `源自 ${btcToStx(senderBitcoinAddress)}`;
   }
 };
 
@@ -154,7 +155,7 @@ const Details = ({
           fontSize={"9px"}
           letterSpacing="1px"
         >
-          PENDING
+          待定
         </Type>
       ) : invalid ? (
         <Type
@@ -167,7 +168,7 @@ const Details = ({
           fontSize={"9px"}
           letterSpacing="1px"
         >
-          INVALID
+          无效
         </Type>
       ) : null}
     </Type>

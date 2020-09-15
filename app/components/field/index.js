@@ -155,7 +155,7 @@ const BalanceField = connect(mapStateToProps)(({ balance, pendingBalance }) => {
   return (
     <Flex flexDirection={"column"} flexShrink={0} pb={5}>
       <Type pb={2} fontWeight={500} fontSize={1} is="label">
-        Available to send
+        可用余额
       </Type>
       <Flex
         border={1}
@@ -165,7 +165,7 @@ const BalanceField = connect(mapStateToProps)(({ balance, pendingBalance }) => {
         overflow="hidden"
       >
         <Flex px={3} height={48} flexGrow={1} alignItems="center">
-          Stacks balance
+          STX余额
         </Flex>
         <Flex
           alignItems="center"

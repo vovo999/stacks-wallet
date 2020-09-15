@@ -62,7 +62,7 @@ class NewSeedScreen extends Component {
           {...rest}
         >
           <Box maxWidth="600px">
-            <Title>Secure your seed phrase</Title>
+            <Title>保存助记</Title>
           </Box>
           <Type
             pt={4}
@@ -73,7 +73,7 @@ class NewSeedScreen extends Component {
             color="hsl(242, 56%, 75%)"
             maxWidth="600px"
           >
-            A unique 24-word sequence generated for you when you create a wallet. You enter your seed phrase to open your wallet or to send Stacks (STX) tokens. 
+            每个Stacks钱包都有相对应的24单词助记。有助记才能开启和使用钱包。
           </Type>
           <Type
             pt={2}
@@ -85,7 +85,8 @@ class NewSeedScreen extends Component {
             color="white"
             maxWidth="600px"
           >
-            Don't lose your seed phrase. If you lose your seed phrase, you lose your STX tokens and can <em><strong>never</strong></em> get them back. <a href="https://docs.blockstack.org/org/secureref.html" target='_blank'>Read about wallet security</a>
+            注意：保护好您的助记。如果丢失，你将永久性失去你的Stacks币。
+            <a href="https://docs.blockstack.org/org/secureref.html" target='_blank'>关于钱包安全（英文）</a>
           </Type>
           <Type
             pt={4}
@@ -95,13 +96,14 @@ class NewSeedScreen extends Component {
             fontSize={2}
             color="hsl(242, 56%, 75%)"
             maxWidth="600px"
+            textAlign="center"
           >
-            This is your seed phrase. <strong>(1)</strong> Write down each position and word, for example, <code>1 - frog</code>. <strong>(2)</strong> Store the written seed phrase in a secure location such as a safe deposit box. 
+            以下是您的钱包助记。请按顺序记下每个单词，然后安全保存。不建议存在电脑上。
             </Type>
           <Seed seedPhrase={seed} isInput={false} small={true}/>
           <Buttons maxWidth="420px" mx="auto" flexDirection="column" pt={4}>
             <Button outline is={Link} invert to={ROUTES.CONFIRM_SEED}>
-              I've written down my seed phrase
+              我记下了
             </Button>
             <OnboardingNavigation
                   onDark

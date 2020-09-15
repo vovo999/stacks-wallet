@@ -41,11 +41,11 @@ export const TextLink = ({
 const BackButton = ({ to, onClick, onDark, ...props }) =>
   to ? (
     <Link to={to}>
-      <TextLink onDark={onDark}>Back</TextLink>
+      <TextLink onDark={onDark}>返回</TextLink>
     </Link>
   ) : (
     <Flex onClick={onClick}>
-      <TextLink onDark={onDark}>Back</TextLink>
+      <TextLink onDark={onDark}>返回</TextLink>
     </Flex>
   );
 
@@ -70,7 +70,7 @@ const ButtonCombo = ({ primary, secondary, ...rest }) => (
 const OnboardingNavigation = ({
   back,
   next,
-  nextLabel = "Continue",
+  nextLabel = "继续",
   onDark
 }) => {
   return back || next ? (

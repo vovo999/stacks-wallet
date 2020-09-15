@@ -119,7 +119,7 @@ class ConfirmSeedScreen extends Component {
           {...rest}
         >
           <Box maxWidth="600px">
-            <Title>Confirm your seed phrase</Title>
+            <Title>确认助记</Title>
           </Box>
           <Type
             pt={5}
@@ -130,7 +130,7 @@ class ConfirmSeedScreen extends Component {
             color="hsl(242, 56%, 75%)"
             maxWidth="600px"
           >
-            Enter the 24 words of your seed phrase in the order requested below. The numbers represent each word's corresponding position in your seed phrase. 
+            请按顺序重复之前记下的助记
           </Type>
           <Seed 
             seedPhrase={seed} 
@@ -146,7 +146,7 @@ class ConfirmSeedScreen extends Component {
             </Type>
           }
           <Buttons maxWidth="420px" mx="auto" flexDirection="column" pt={5}>
-            <Button outline invert onClick={this.handleConfirmSuccess}>Done</Button>
+            <Button outline invert onClick={this.handleConfirmSuccess}>完成</Button>
             <OnboardingNavigation
                   onDark
                   back={ROUTES.NEW_SEED}

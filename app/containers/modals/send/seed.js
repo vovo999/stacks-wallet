@@ -90,7 +90,7 @@ const SeedView = ({
       <Flex flexDirection="column" bg="#F1F6F9" mx="0px" mb="15px">
         <Flex flexDirection="column" alignItems="left" pt={4} px="28px">
           <Type fontSize={3}>
-            Enter your seed phrase
+            输入助记
           </Type>
         </Flex>
         <Flex flexDirection="column" alignItems="center" mt="-15px" px="15px">
@@ -123,7 +123,7 @@ const SeedView = ({
               props: {
                 disabled: state.processing
               },
-              label: state.processing ? "Processing..." : "Continue",
+              label: state.processing ? "加载中…" : "继续",
               action: () => {
                 if (!state.processing) {
                   handleSeedValidation(
@@ -137,7 +137,7 @@ const SeedView = ({
               },
             },
             secondary: {
-              label: "Cancel",
+              label: "取消",
               action: () => {
                 clearSeed(setState);
                 goToView(0);

@@ -15,7 +15,7 @@ import {
 
 const Empty = ({ isFetching, ...rest }) => {
   const Icon = isFetching ? Spinner : LayersOffOutlineIcon;
-  const message = isFetching ? "Loading..." : "No transactions found for this address.";
+  const message = isFetching ? "加载中..." : "未有转账记录";
   return (
     <Flex
       flexGrow={1}

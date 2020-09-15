@@ -46,20 +46,19 @@ const TopUpSection = connect(state => ({
   type !== WALLET_TYPES.WATCH_ONLY ? (
     <Section>
       <Label pb={4} fontSize={2}>
-        Transaction fees
+        转账手续费
       </Label>
       <Card>
         <Flex p={4} borderRight={1} borderColor="blue.mid" flexGrow={1}>
           <Type>
-            You need very small amounts of Bitcoin (BTC) to send Stacks (STX). You
-            currently have {satoshisToBtc(balance)} BTC available.
+            转账STX需要支付少量的BTC手续费。现有{satoshisToBtc(balance)} BTC可用于支付手续费
           </Type>
         </Flex>
         <Flex justifyContent="center" p={4}>
           <OpenModal component={TxFeesModal}>
             {({ bind }) => (
               <Button height={"auto"} py={2} {...bind}>
-                Add BTC
+                充值BTC
               </Button>
             )}
           </OpenModal>
@@ -75,7 +74,7 @@ const DangerZone = connect(
 )(({ doResetWallet, hide, ...rest }) => (
   <Section>
     <Label pb={4} fontSize={2}>
-    Reset wallet setup
+    重置钱包
     </Label>
     <Card>
       <Flex
@@ -86,7 +85,8 @@ const DangerZone = connect(
         flexGrow={1}
       >
         <Type>
-          Resetting removes your Stacks Wallet setup. It does not affect your Stacks addresses or the STX balances on them. You need your seed phrase to gain access to them again. <strong>Make sure you have stored your seed phrase securely.</strong> </Type>
+          退出当前登录的钱包。不影响钱包余额。如重新登录需要输入助记。
+        </Type>
       </Flex>
       <Flex justifyContent="center" alignItems="center" p={4} >
         <State initial={{ clicked: false }}>
@@ -102,7 +102,7 @@ const DangerZone = connect(
                   py={2}
                   bg="#EF4813"
                 >
-                  Are you sure?
+                  确定重置钱包
                 </Button>
               );
             }
@@ -115,7 +115,7 @@ const DangerZone = connect(
                 py={2}
                 bg="#EF4813"
               >
-                Reset wallet
+                重置钱包
               </Button>
             );
           }}
@@ -126,13 +126,13 @@ const DangerZone = connect(
 ));
 const SettingsModal = ({ hide, ...rest }) => {
   return (
-    <Modal title="Settings" hide={hide} p={0} width="90vw">
+    <Modal title="设置" hide={hide} p={0} width="90vw">
       <TopUpSection />
       <DangerZone hide={hide} />
       <Flex flexDirection="column" p={4} flexShrink={0}>
         <Buttons>
           <Button height={"auto"} py={2} onClick={hide}>
-            Close
+            关闭
           </Button>
         </Buttons>
       </Flex>

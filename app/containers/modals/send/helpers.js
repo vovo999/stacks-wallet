@@ -24,33 +24,33 @@ const handleValidation = (
   let errors = {};
 
   if (amount === "") {
-    errors.amount = "Please enter a valid amount to send.";
+    errors.amount = "请输入有效金额";
   }
 
   if (amount && Number(amount) < 0.000001) {
-    errors.amount = "Amount needs to be more than a microstack (> 0.000001).";
+    errors.amount = "最低转账金额是0.000001";
   }
 
   if (recipient === "") {
-    errors.recipient = "Please enter a valid Stacks address.";
+    errors.recipient = "请输入有效STX地址";
   }
 
   if (!errors.amount && !(Number(availableBalance) >= Number(amount))) {
-    errors.amount = "You don't have enough Stacks!";
+    errors.amount = "账户余额不足!";
   }
 
   if (!errors.recipient) {
     const valid = validateStacksAddress(recipient);
     if (!valid) {
-      errors.recipient = "Invalid Stacks address.";
+      errors.recipient = "无效STX地址";
     }
     if (recipient === sender) {
-      errors.recipient = "Sender and recipient address cannot be the same.";
+      errors.recipient = "收款地址和来源地址相同";
     }
   }
 
   if (memo !== "" && memo.length > 32) {
-    errors.memo = "Memo cannot be longer than 32 characters.";
+    errors.memo = "备注过长";
   }
   
   if (Object.entries(errors).length) {
@@ -108,13 +108,13 @@ const handleSeedValidation = (
   const seedString = seedArray.join(' ')
 
   if (!bip39.validateMnemonic(seedString)) {
-    errors.seed = "The seed phrase you entered is invalid";
+    errors.seed = "错误或无效助记";
   }
 
   const address = mnemonicToStxAddress(seedString)
 
   if (address !== sender) {
-    errors.seed = "The seed phrase you entered is invalid";
+    errors.seed = "错误或无效助记";
   }
 
   if (Object.entries(errors).length) {

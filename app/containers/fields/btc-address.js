@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 const BtcField = connect(mapStateToProps)(({ btc, ...rest }) => (
   <Field
     width={1}
-    label="Bitcoin Address"
+    label="Bitcoin地址"
     value={btc}
     disabled
     copy

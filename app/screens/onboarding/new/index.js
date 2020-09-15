@@ -36,7 +36,7 @@ const NewScreen = ({ ...props }) => (
     {...props}
   >
     <Box maxWidth="400px">
-      <Title>Do you have a hardware wallet?</Title>
+      <Title>是否使用硬件钱包?</Title>
     </Box>
     <Type
       pb={2}
@@ -50,14 +50,14 @@ const NewScreen = ({ ...props }) => (
     </Type>
     <Buttons maxWidth="420px" mx="auto" flexDirection="column" pt={5}>
       <Button outline is={Link} invert to={ROUTES.RESTORE_HARDWARE}>
-        Yes, I do
+        是
       </Button>
       <OpenModal component={({ visible, hide }) => 
         <WarningModal hide={hide} proceed={(hide) => proceed(hide, props.history)} />
         }>
         {({ bind }) => (
           <Button outline mt={4} invert {...bind}>
-            No, I don't
+           否
           </Button>
         )}
       </OpenModal>

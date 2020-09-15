@@ -56,7 +56,7 @@ class InitialScreen extends Component {
         {...this.props}
       >
         <Box maxWidth="400px">
-          <Title>Welcome to the Stacks Wallet</Title>
+          <Title>Stacks钱包</Title>
         </Box>
         <Type
           pb={2}
@@ -67,14 +67,14 @@ class InitialScreen extends Component {
           color="hsl(242, 56%, 75%)"
           maxWidth="300px"
         >
-          Choose one of the following options to set up a Stacks wallet.
+          请创建新钱包或恢复已有钱包
         </Type>
         <Buttons maxWidth="420px" mx="auto" flexDirection="column" pt={5}>
           <Button outline is={Link} invert to={ROUTES.NEW_OPTIONS}>
-            Create new wallet
+            新钱包
           </Button>
           <Button outline is={Link} mt={4} invert to={ROUTES.RESTORE_OPTIONS}>
-            Restore existing wallet
+            恢复钱包
           </Button>
         </Buttons>
         <Type
@@ -87,7 +87,7 @@ class InitialScreen extends Component {
             color="white"
             maxWidth="600px"
           >
-          <a href="https://docs.blockstack.org/org/wallet-use.html" target='_blank'>Wallet help</a>
+          <a href="https://docs.blockstack.org/org/wallet-use.html" target='_blank'>帮助（英文）</a>
           </Type>
         <Type 
           position="absolute" 

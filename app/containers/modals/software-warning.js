@@ -43,7 +43,7 @@ const Section = ({ ...rest }) => (
 
 const SoftwareWarningModal = ({ hide, proceed, history, ...rest }) => {
   return (
-    <Modal title="Caution: A hardware wallet is recommended" fontSize={4} hide={hide} p={0} width="90vw">
+    <Modal title="建议使用硬件钱包" fontSize={4} hide={hide} p={0} width="90vw">
       <Flex 
         flexDirection="column" 
         p={4} 
@@ -58,14 +58,14 @@ const SoftwareWarningModal = ({ hide, proceed, history, ...rest }) => {
             fontSize={2}
             pt={4}
             maxWidth="600px">
-            Hardware wallets further protect you from token loss and theft should your computer get hacked or your records lost. To ensure you understand their benefits and the risks of proceeding without one, please read our documentation.
+            <p>硬件钱包能更有效的保护您的Stacks币。</p><p>如果不使用，请在继续前仔细阅读有关说明。</p>
           </Type>
           <Buttons maxWidth="420px" mx="auto" flexDirection="column" pt={5} pb={5}>
             <Button onClick={() => proceed(hide)} mb={3} bg="#EF4813">
-              Continue without a hardware wallet
+              继续
             </Button>
             <Button onClick={hide}>
-              Back
+              返回
             </Button>
           </Buttons>
       </Flex>

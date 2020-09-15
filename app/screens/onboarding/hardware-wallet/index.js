@@ -69,21 +69,21 @@ export default class RestoreSeed extends Component<Props> {
       <Page
         alignItems="center"
         justifyContent="center"
-        title="Select your Hardware Wallet"
+        title="选择硬件钱包"
         style={style}
       >
         <Flex width={1} flexDirection={"column"} maxWidth="600px">
           <Flex py={6} justifyContent="space-between" width={1}>
             <Item
-              title="Trezor Wallet"
+              title="Trezor"
               icon={TrezorLogo}
-              subtitle="Trezor One or Model T"
+              subtitle="Trezor One 或 Model T"
               to={ROUTES.RESTORE_TREZOR}
             />
             <Item
-              title="Ledger Wallet"
+              title="Ledger"
               icon={LedgerLogo}
-              subtitle="Nano S and Blue"
+              subtitle="Nano S 或 Blue"
               to={ROUTES.RESTORE_LEDGER}
             />
           </Flex>

@@ -28,7 +28,7 @@ const RestoreScreen = ({ ...props }) => (
     {...props}
   >
     <Box maxWidth="400px">
-      <Title>Do you have a hardware wallet?</Title>
+      <Title>是否使用硬件钱包?</Title>
     </Box>
     <Type
       pb={2}
@@ -42,10 +42,10 @@ const RestoreScreen = ({ ...props }) => (
     </Type>
     <Buttons maxWidth="420px" mx="auto" flexDirection="column" pt={5}>
       <Button outline is={Link} invert to={ROUTES.RESTORE_HARDWARE}>
-        Yes, I do
+        是
       </Button>
       <Button outline is={Link} mt={4} invert to={ROUTES.RESTORE_SEED}>
-        No, I don't
+        否
       </Button>
       <OnboardingNavigation
             onDark

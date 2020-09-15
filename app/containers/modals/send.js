@@ -69,7 +69,7 @@ const mapStateToProps = state => ({
   error: selectWalletError(state)
 });
 
-const Wrapper = props => <Modal title="Send Stacks (STX)" {...props} />;
+const Wrapper = props => <Modal title="转账STX" {...props} />;
 
 class SendComponent extends React.Component {
   state = {

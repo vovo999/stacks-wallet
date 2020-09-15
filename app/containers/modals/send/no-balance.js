@@ -17,7 +17,7 @@ const NoBalance = ({ wrapper: Wrapper, nextView, children, hide, ...rest }) => {
           <CoinsIcon size={100} />
         </Flex>
         <Type fontWeight="bold" color="blue.dark">
-          You don't have any Stacks!
+          钱包余额是0!
         </Type>
       </Flex>
       {children

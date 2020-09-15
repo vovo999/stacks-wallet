@@ -186,7 +186,7 @@ class RestoreSeedScreen extends Component {
           {...rest}
         >
           <Box maxWidth="600px">
-            <Title>Enter your seed phrase</Title>
+            <Title>输入助记</Title>
           </Box>
           <Type
             pt={5}
@@ -197,7 +197,7 @@ class RestoreSeedScreen extends Component {
             color="hsl(242, 56%, 75%)"
             maxWidth="600px"
           >
-            Restore your wallet by entering the 24 words of your seed phrase in the correct order.
+            请按顺序输入24单词助记恢复钱包
           </Type>
           {/* <SeedLengthSelector length={this.state.seedLength} handleClick={this.handleSeedLengthClick} /> */}
           <Seed 
@@ -214,7 +214,7 @@ class RestoreSeedScreen extends Component {
             </Type>
           }
           <Buttons maxWidth="420px" mx="auto" flexDirection="column" pt={4}>
-            <Button outline invert onClick={this.handleConfirmSuccess}>Restore</Button>
+            <Button outline invert onClick={this.handleConfirmSuccess}>恢复</Button>
             <OnboardingNavigation
                   onDark
                   back={ROUTES.RESTORE_OPTIONS}

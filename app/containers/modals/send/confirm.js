@@ -40,21 +40,21 @@ const Confirmation = ({
               borderColor="blue.mid"
               width="50%"
             >
-              <Type fontSize={3}>Please confirm your transaction.</Type>
+              <Type fontSize={3}>请确认转账</Type>
             </Flex>
             <Flex p={4} flexDirection="column">
-              <Label>Amount to send</Label>
+              <Label>转账金额</Label>
               <Type fontSize={4}>{decoded.tokenAmountReadable} STX</Type>
-              <Label pt={3}>Fee</Label>
+              <Label pt={3}>手续费</Label>
               <Type>{satoshisToBtc(fee)} BTC</Type>
             </Flex>
           </Flex>
         </Card>
       </Flex>
       <Flex flexDirection="column" p={4} pb={0}>
-        <StaticField label="Recipient" value={decoded.recipient} />
+        <StaticField label="收款地址" value={decoded.recipient} />
         {decoded.memo !== "" ? (
-          <StaticField label="Memo" value={decoded.memo} />
+          <StaticField label="备注" value={decoded.memo} />
         ) : null}
       </Flex>
       {children
@@ -79,10 +79,10 @@ const Confirmation = ({
                   });
                 }
               },
-              label: "Confirm"
+              label: "确认"
             },
             secondary: {
-              label: "Cancel",
+              label: "取消",
               action: () => {
                 goToView(0);
                 setState({

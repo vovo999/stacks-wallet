@@ -28,7 +28,7 @@ export const ReceiveButton = ({ ...rest }) => (
   <OpenModal component={funct}>
     {({ bind }) => (
       <Button icon={QrCode} width={150} height={"auto"} py={2} mx={2} {...bind}>
-        Receive
+        收款
       </Button>
     )}
   </OpenModal>
@@ -44,7 +44,7 @@ const SendButton = ({ ...rest }) => (
         mx={2}
         {...bind}
       >
-        Send
+        转账
       </Button>
     )}
   </OpenModal>
@@ -67,7 +67,7 @@ const BalanceSection = connect(state => ({
                   color={state.view === "balance" ? "blue.dark" : undefined}
                   cursor="pointer"
                 >
-                  Available balance
+                  可用余额
                 </Type>{" "}
                 /{" "}
                 <Type
@@ -75,11 +75,11 @@ const BalanceSection = connect(state => ({
                   color={state.view === "allocation" ? "blue.dark" : undefined}
                   cursor="pointer"
                 >
-                  Allocation
+                  分配
                 </Type>
               </>
             ) : (
-              <Type>Available balance</Type>
+              <Type>可用余额</Type>
             )}
           </Type>
           <Flex py={6} alignItems={"center"}>
@@ -105,12 +105,12 @@ const BalanceSection = connect(state => ({
             <Type fontWeight="bold">
               {data.totalUnlockedStacks}{" "}
               <Type color="hsl(205, 30%, 70%)">STX</Type>{" "}
-              <Type color="hsl(205, 30%, 70%)">Unlocked</Type>
+              <Type color="hsl(205, 30%, 70%)">已解锁</Type>
             </Type>
           ) : null}
           {pendingBalance ? (
             <Type fontWeight="500">
-              <Type color="hsl(205, 30%, 70%)">Pending Balance:</Type>{" "}
+              <Type color="hsl(205, 30%, 70%)">未结余额:</Type>{" "}
               {formatMicroStxValue(microToStacks(pendingBalance))}{" "}
               <Type color="hsl(205, 30%, 70%)">STX</Type>{" "}
             </Type>
