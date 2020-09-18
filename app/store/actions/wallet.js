@@ -178,7 +178,7 @@ const doResetWallet = () => async dispatch => {
   });
   dispatch(push(ROUTES.TERMS));
   await clearCache();
-  doNotify("Wallet has been reset!")(dispatch);
+  doNotify("完成重置")(dispatch);
 };
 
 /**
@@ -209,8 +209,8 @@ const doAddHardwareWallet = type => async (dispatch, state) => {
         type: WALLET_LOADING_FINISHED
       });
       doNotify({
-        title: "Success!",
-        message: "Hardware wallet successfully synced!"
+        title: "成功！",
+        message: "硬件钱包连接完毕"
       })(dispatch);
       dispatch(push("/dashboard"));
       doRefreshData(false)(dispatch, state);
@@ -224,7 +224,7 @@ const doAddHardwareWallet = type => async (dispatch, state) => {
       type === WALLET_TYPES.LEDGER
     ) {
       message =
-        "Could not connect to device. Try closing the BTC app and reopening it.";
+        "出现错误，未能完成硬件钱包连接。 出现错误，未能完成硬件钱包连接。可尝试关闭BTC App，重新开启后再试。";
     }
     dispatch({
       type: WALLET_LOADING_FINISHED
@@ -235,7 +235,7 @@ const doAddHardwareWallet = type => async (dispatch, state) => {
     });
     doNotifyWarning({
       type: "error",
-      title: "Whoops!",
+      title: "出现错误",
       message: message
     })(dispatch);
   }
@@ -277,7 +277,7 @@ const doFetchBalances = addresses => async (dispatch, state) => {
 const doRefreshData = (notify = true) => (dispatch, state) => {
   const stx = selectWalletStacksAddress(state());
   const btc = selectWalletBitcoinAddress(state());
-  notify && doNotify("Refreshing data!")(dispatch);
+  notify && doNotify("加载中…")(dispatch);
   doFetchBalances({ stx, btc })(dispatch, state);
   doFetchStxAddressData(stx)(dispatch, state);
 };
@@ -373,7 +373,7 @@ const doSignTransaction = (
   } catch (e) {
     if (typeof e === "string") {
       doNotifyWarning({
-        title: "Transaction Signing Failed",
+        title: "转账签字发生错误",
         message: e
       })(dispatch);
       // allow the modal to be closed
@@ -390,14 +390,14 @@ const doSignTransaction = (
       // allow the modal to be closed in case of error
       doAllowModalToClose()(dispatch);
       doNotifyWarning({
-        title: "Not enough BTC",
+        title: "BTC不足",
         message:
-          "Looks like you don't have enough BTC to pay the associated transaction fees for this transaction."
+          "钱包没有足够BTC可用于支付转账手续费"
       })(dispatch);
       return;
     }
     doNotifyWarning({
-      title: "Something went wrong.",
+      title: "出现错误",
       message: e.message
     })(dispatch);
     // allow the modal to be closed in case of error
@@ -485,7 +485,7 @@ const doSignBTCTransaction = (
   } catch (e) {
     if (typeof e === "string") {
       doNotifyWarning({
-        title: "Transaction Signing Failed",
+        title: "转账签字发生错误",
         message: e
       })(dispatch);
       // allow the modal to be closed
@@ -502,14 +502,14 @@ const doSignBTCTransaction = (
       // allow the modal to be closed in case of error
       doAllowModalToClose()(dispatch);
       doNotifyWarning({
-        title: "Not enough BTC",
+        title: "BTC不足",
         message:
-          "Looks like you don't have enough BTC to pay the associated transaction fees for this transaction."
+          "钱包没有足够BTC可用于支付转账手续费"
       })(dispatch);
       return;
     }
     doNotifyWarning({
-      title: "Something went wrong.",
+      title: "出现错误",
       message: e.message
     })(dispatch);
     // allow the modal to be closed in case of error
@@ -536,13 +536,13 @@ const doBroadcastTransaction = rawTx => async (dispatch, state) => {
     // Set a delayed refresh action in case data pulled from API isn't up to date
     setTimeout(() => (doRefreshData(false)(dispatch, state)), 2500)
     doNotify({
-      title: "Success!",
-      message: "Your transaction has been submitted!"
+      title: "成功！",
+      message: "转账已完成发送"
     })(dispatch);
     return txHash;
   } catch (e) {
     doNotifyWarning({
-      title: "Something went wrong.",
+      title: "出现错误",
       message: e.message
     })(dispatch);
     dispatch({

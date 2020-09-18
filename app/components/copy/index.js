@@ -32,7 +32,7 @@ const Copy = ({ value = "", ...rest }) => (
               }}
               {...rest}
             >
-              <Tooltip text={copied ? "Copied!" : "Copy"}>
+              <Tooltip text={copied ? "已复制！" : "复制"}>
                 <CopyToClipboard text={value} onCopy={handleCopy}>
                   <Flex py={2} px={3}>
                     <CopyIcon size={18} />

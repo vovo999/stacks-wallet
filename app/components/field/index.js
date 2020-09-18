@@ -27,7 +27,7 @@ const Link = ({ value, ...rest }) => (
         {...rest}
         {...bind}
       >
-        <Tooltip text="View in Explorer">
+        <Tooltip text="打开浏览器">
           <Flex p={1}>
             <OpenInNewIcon size={20} />
           </Flex>

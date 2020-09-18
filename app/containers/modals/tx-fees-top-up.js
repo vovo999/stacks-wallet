@@ -7,7 +7,7 @@ import { BtcField } from "@containers/fields/btc-address";
 
 const TxFeesModal = ({ hide }) => (
   <Modal
-    title="Top Up"
+    title="充值BTC"
     hide={hide}
     maxWidth={"560px"}
     p={0}
@@ -37,8 +37,7 @@ const TxFeesModal = ({ hide }) => (
             py={4}
           >
             <Type pb={4} fontSize={4} lineHeight={1.5}>
-              Bitcoin (BTC) is only used to pay fees for Stacks (STX) transactions. You cannot
-              send BTC from this wallet.
+              钱包BTC只能用于支付转账手续费
             </Type>
             <Button
               onClick={() =>
@@ -49,7 +48,7 @@ const TxFeesModal = ({ hide }) => (
               height={"auto"}
               py={2}
             >
-              Continue
+              继续
             </Button>
           </Flex>
           <Flex

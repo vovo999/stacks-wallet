@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex, Type } from "blockstack-ui/dist";
 
-const Notice = ({ label = "Note", children, dark, ...rest }) => (
+const Notice = ({ label = "注意", children, dark, ...rest }) => (
   <Flex
     mb={4}
     width={1}

@@ -5,19 +5,19 @@ import { Flex } from "blockstack-ui/dist";
 
 const steps = [
   {
-    value: `Please connect your Ledger to your computer via USB.`,
+    value: `将硬件钱包连接至电脑USB插口`,
     icon: UsbIcon
   },
   {
-    value: "Unlock your Ledger by entering your PIN.",
+    value: "在硬件钱包上输入PIN解锁",
     icon: LockIcon
   },
   {
-    value: "Select the Bitcoin App on your Ledger.",
+    value: "在硬件钱包上选择Bitcoin App",
     icon: BitcoinIcon
   },
   {
-    value: `Make sure you have "Browser Support" set to no.`,
+    value: `如果你的硬件钱包支持Browser Support选项，请选择No（关闭）`,
     icon: NoEntryIcon
   }
 ];

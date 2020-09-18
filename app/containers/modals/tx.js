@@ -8,12 +8,12 @@ import { StaticField } from "@components/field";
 
 const TxAmounts = ({ amount, fees, ...rest }) => (
   <Flex py={4} px={6} flexDirection="column" justifyContent="center">
-    <Label>Amount</Label>
+    <Label>金额</Label>
     <Flex>
       <Value fontSize={6} amount={amount} suffix="STX" />
     </Flex>
     <Label pt={4} pb={0}>
-      Fees
+      手续费
     </Label>
     <Value fontSize={2} fontWeight={500} amount={fees} suffix="BTC" satoshis />
   </Flex>
@@ -32,7 +32,7 @@ const OperationTypeSection = ({ item, stx, ...rest }) => (
     alignSelf={"stretch"}
   >
     <TypeIcon mb={2} size={72} item={item} stx={stx} />
-    <Label pb={0}>{item.sender === stx ? "Sent" : "Received"}</Label>
+    <Label pb={0}>{item.sender === stx ? "转出" : "转入"}</Label>
     <Label pb={0}>Stacks</Label>
   </Flex>
 );
@@ -57,31 +57,31 @@ const TxDetailsModal = ({ hide, visible, tx, stx, ...rest }) => {
 
   const items = [
     {
-      label: "Sender",
+      label: "源自地址",
       value: sender && typeof sender === "string" ? sender : sender.stx,
       link: `https://explorer.blockstack.org/address/stacks/${
         sender && typeof sender === "string" ? sender : sender.stx
       }`
     },
     {
-      label: "Recipient",
+      label: "收款地址",
       value: recipient,
       link: `https://explorer.blockstack.org/address/stacks/${recipient}`
     },
     {
-      label: "BTC Transaction",
+      label: "BTC交易哈希值",
       value: txid,
       link: `https://explorer.blockstack.org/tx/${txid}`
     },
     {
-      label: "BTC Block",
+      label: "BTC块",
       value: block_id,
       link: `https://explorer.blockstack.org/block/${block_id}`
     },
-    { label: "Memo", value: memo || scratchData }
+    { label: "备注", value: memo || scratchData }
   ];
   return (
-    <Modal title="Transaction Details" hide={hide} p={0}>
+    <Modal title="交易细节" hide={hide} p={0}>
       <Flex
         p={4}
         borderBottom={1}

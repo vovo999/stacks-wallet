@@ -15,7 +15,7 @@ const Confirmation = ({
   ...rest
 }) => {
 
-  if (!state.tx) return <>Oops!</>;
+  if (!state.tx) return <>出现错误！</>;
 
   const { fee, rawTx, decoded } = state.tx;
   if (!decoded) {

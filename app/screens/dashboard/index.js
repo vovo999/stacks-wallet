@@ -103,7 +103,7 @@ const NewWallet = ({ doRefreshData, fetching, ...rest }) => (
           label: fetching ? (
             <Spinner stroke={4} size={18} color="currentColor" />
           ) : (
-            "Refresh"
+            "刷新"
           ),
           color: "blue",
           onClick: debounce(doRefreshData, 500)

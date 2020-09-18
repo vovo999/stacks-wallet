@@ -79,7 +79,7 @@ const HardwareView = ({
     <Wrapper hide={hide}>
       <Flex flexDirection="column" alignItems="center" pt={4}>
         <Type pb={6} fontSize={4}>
-          Connect your {type === WALLET_TYPES.TREZOR ? "Trezor" : "Ledger"}
+          请连接{type === WALLET_TYPES.TREZOR ? "Trezor" : "Ledger"}硬件钱包
         </Type>
         <HardwareSteps
           steps={type === WALLET_TYPES.TREZOR ? trezorSteps : ledgerSteps}
@@ -89,10 +89,10 @@ const HardwareView = ({
               {children({
                 next: {
                   label: state.processing
-                    ? "Loading..."
+                    ? "加载中…"
                     : hasNext
-                    ? "Next"
-                    : "Continue",
+                    ? "下一步"
+                    : "继续",
                   action: () => (hasNext ? next() : handleSubmit()),
                   props: {
                     style: {
@@ -102,14 +102,14 @@ const HardwareView = ({
                 },
                 secondary: [
                   {
-                    label: "Back",
+                    label: "返回",
                     action: prevView
                   }
                 ].concat(
                   hasNext
                     ? [
                         {
-                          label: "Skip",
+                          label: "跳过",
                           action: lastView
                         }
                       ]

@@ -13,19 +13,19 @@ import { connect } from "react-redux";
 
 export const ledgerSteps = [
   {
-    value: `Please connect your Ledger to your computer via USB.`,
+    value: `将硬件钱包连接至电脑USB插口`,
     icon: UsbIcon
   },
   {
-    value: "Unlock your Ledger by entering your PIN.",
+    value: "在硬件钱包上输入PIN解锁",
     icon: LockIcon
   },
   {
-    value: "Select the Bitcoin App on your Ledger.",
+    value: "在硬件钱包上选择Bitcoin App",
     icon: BitcoinIcon
   },
   {
-    value: `Make sure you have "Browser Support" set to no.`,
+    value: `如果你的硬件钱包支持Browser Support选项，请选择No（关闭）`,
     icon: NoEntryIcon
   }
 ];
@@ -47,7 +47,7 @@ export const LedgerSteps = connect(
           back={hasPrev ? prev : ROUTES.RESTORE_HARDWARE}
           next={{
             action: hasNext ? next : handleSubmit,
-            label: loading ? "Loading..." : hasNext ? "Next" : "Continue",
+            label: loading ? "加载中…" : hasNext ? "下一步" : "继续",
             props: {
               style: {
                 pointerEvents: loading ? "none" : "unset"
@@ -64,7 +64,7 @@ const LedgerPage = ({ style, ...rest }) => (
   <Page
     alignItems="center"
     justifyContent="center"
-    title="Connect your Ledger"
+    title="连接Ledger硬件钱包"
     style={style}
   >
     <Flex width={1} flexDirection={"column"} maxWidth="600px">

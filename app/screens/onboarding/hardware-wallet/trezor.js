@@ -12,7 +12,7 @@ import { TextLink } from "@containers/buttons/onboarding-navigation";
 import { shell } from "electron";
 export const trezorSteps = [
   {
-    value: `Please connect your Trezor to your computer via USB.`,
+    value: `将硬件钱包连接到电脑USB插口`,
     icon: UsbIcon
   }
 ];
@@ -27,7 +27,7 @@ const TrezorPage = connect(
     <Page
       alignItems="center"
       justifyContent="center"
-      title="Connect your Trezor"
+      title="连接Trezor硬件钱包"
       style={style}
     >
       <Flex width={1} flexDirection={"column"} maxWidth="600px">
@@ -38,7 +38,7 @@ const TrezorPage = connect(
           width={1}
         >
           <Notice mb={6} dark>
-            Make sure you have{" "}
+          请确认电脑已安装{" "}
             <TextLink
               onClick={() =>
                 shell.openExternal("https://wallet.trezor.io/#/bridge")
@@ -50,7 +50,7 @@ const TrezorPage = connect(
             >
               Trezor Bridge
             </TextLink>{" "}
-            installed.
+            插件。
           </Notice>
 
           <HardwareSteps steps={trezorSteps}>

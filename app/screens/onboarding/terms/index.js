@@ -53,7 +53,7 @@ const TermsPage = ({ quit, doAcceptTerms, history, next, style }) => {
         px={4}
         flexGrow={1}
       >
-        <Title>Terms of Use</Title>
+        <Title>使用条款</Title>
       </Flex>
       <Flex flexGrow={1} justifyContent="center">
         <Box mx="auto" maxWidth="700px">
@@ -62,14 +62,14 @@ const TermsPage = ({ quit, doAcceptTerms, history, next, style }) => {
       </Flex>
       <Buttons justifyContent="center" py={6}>
         <Button mx={2} outline invert onClick={handleQuit}>
-          Quit
+          退出
         </Button>
         <Button
           onClick={() => handleAccept(doAcceptTerms, history)}
           mx={2}
           invert
         >
-          I Accept
+          接受
         </Button>
       </Buttons>
     </Flex>
