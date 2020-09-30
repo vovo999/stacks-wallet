@@ -6,6 +6,7 @@ import { Label } from "@components/field";
 import { doResetWallet } from "@stores/actions/wallet";
 import { OpenModal } from "@components/modal";
 import { TxFeesModal } from "@containers/modals/tx-fees-top-up";
+import { WithdrawBTCModal } from "@containers/modals/withdraw-btc";
 import { connect } from "react-redux";
 import {
   selectWalletType,
@@ -51,7 +52,12 @@ const TopUpSection = connect(state => ({
       <Card>
         <Flex p={4} borderRight={1} borderColor="blue.mid" flexGrow={1}>
           <Type>
+<<<<<<< HEAD
             转账STX需要支付少量的BTC手续费。现有{satoshisToBtc(balance)} BTC可用于支付手续费
+=======
+            You need very small amounts of Bitcoin (BTC) to send Stacks (STX).
+            You currently have {satoshisToBtc(balance)} BTC available.
+>>>>>>> feat/btc-withdraw
           </Type>
         </Flex>
         <Flex justifyContent="center" p={4}>
@@ -59,6 +65,40 @@ const TopUpSection = connect(state => ({
             {({ bind }) => (
               <Button height={"auto"} py={2} {...bind}>
                 充值BTC
+              </Button>
+            )}
+          </OpenModal>
+        </Flex>
+      </Card>
+    </Section>
+  ) : null
+);
+
+const WithdrawBTCSection = connect(state => ({
+  type: selectWalletType(state),
+  balance: selectWalletBitcoinBalance(state)
+}))(({ type, balance }) =>
+  type !== WALLET_TYPES.WATCH_ONLY ? (
+    <Section>
+      <Label pb={4} fontSize={2}>
+        Withdraw BTC
+      </Label>
+      <Card>
+        <Flex p={4} borderRight={1} borderColor="blue.mid" flexGrow={1}>
+          <Type>
+            You can withdraw {satoshisToBtc(balance)} BTC used for transaction
+            fees here.
+          </Type>
+        </Flex>
+        <Flex justifyContent="center" p={4}>
+          <OpenModal
+            component={props => (
+              <WithdrawBTCModal balance={balance} {...props} />
+            )}
+          >
+            {({ bind }) => (
+              <Button height="auto" py={2} {...bind}>
+                Withdraw {satoshisToBtc(balance)} BTC
               </Button>
             )}
           </OpenModal>
@@ -88,7 +128,7 @@ const DangerZone = connect(
           退出当前登录的钱包。不影响钱包余额。如重新登录需要输入助记。
         </Type>
       </Flex>
-      <Flex justifyContent="center" alignItems="center" p={4} >
+      <Flex justifyContent="center" alignItems="center" p={4}>
         <State initial={{ clicked: false }}>
           {({ state, setState }) => {
             if (state.clicked) {
@@ -128,6 +168,7 @@ const SettingsModal = ({ hide, ...rest }) => {
   return (
     <Modal title="设置" hide={hide} p={0} width="90vw">
       <TopUpSection />
+      <WithdrawBTCSection />
       <DangerZone hide={hide} />
       <Flex flexDirection="column" p={4} flexShrink={0}>
         <Buttons>

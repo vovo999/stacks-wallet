@@ -2,8 +2,9 @@ import React from "react";
 import { validateStacksAddress } from "@utils/validation";
 import produce from "immer";
 import { prepareTransaction } from "@common/lib/transactions";
-import bip39 from 'bip39';
-import { mnemonicToStxAddress, emptySeedArray } from '@utils/utils'
+import bip39 from "bip39";
+import { mnemonicToStxAddress, emptySeedArray } from "@utils/utils";
+import { convertStxAddressToBtcAddress } from "@common/lib/addresses";
 
 const handleValidation = (
   sender,
@@ -52,7 +53,7 @@ const handleValidation = (
   if (memo !== "" && memo.length > 32) {
     errors.memo = "备注过长";
   }
-  
+
   if (Object.entries(errors).length) {
     setState({
       errors
@@ -94,24 +95,22 @@ const handleValidation = (
   });
 };
 
-const handleSeedValidation = (
-  sender,
-  values,
-  setState,
-  next
-) => {
+const handleSeedValidation = (sender, values, setState, next, type = "STX") => {
   setState({
     processing: true
   });
   const { seedArray } = values;
   let errors = {};
-  const seedString = seedArray.join(' ')
+  const seedString = seedArray.join(" ");
 
   if (!bip39.validateMnemonic(seedString)) {
     errors.seed = "错误或无效助记";
   }
 
-  const address = mnemonicToStxAddress(seedString)
+  const stxAddress = mnemonicToStxAddress(seedString);
+
+  const address =
+    type === "STX" ? stxAddress : convertStxAddressToBtcAddress(stxAddress);
 
   if (address !== sender) {
     errors.seed = "错误或无效助记";
@@ -122,26 +121,28 @@ const handleSeedValidation = (
       errors,
       processing: false
     });
-    return null;
-  } else {
-    setState({
+    return;
+  }
+  setState(
+    {
       errors,
       processing: false
-    }, next);
-  }
-}
+    },
+    next
+  );
+};
 
 const updateValue = (value, setState, key) =>
   setState(state =>
     produce(state, draft => {
-        draft.values[key] = value;
+      draft.values[key] = value;
     })
   );
 
-const updateValueWithIndex = (value, setState, key, index) => 
+const updateValueWithIndex = (value, setState, key, index) =>
   setState(state =>
     produce(state, draft => {
-      if(draft.values[key]) {
+      if (draft.values[key]) {
         draft.values[key][index] = value;
       }
     })
@@ -153,11 +154,10 @@ const handleChange = (event, setState, key) =>
 const handleSeedChange = (event, setState, index) =>
   updateValueWithIndex(event.target.value, setState, "seedArray", index);
 
-const clearSeed = (setState) =>  
+const clearSeed = setState =>
   setState(state =>
     produce(state, draft => {
-      draft.seed = '',
-      draft.values['seedArray'] = emptySeedArray(24)
+      (draft.seed = ""), (draft.values["seedArray"] = emptySeedArray(24));
     })
   );
 
@@ -182,4 +182,11 @@ const handleBtcCheck = async (
   }
 };
 
-export { handleValidation, handleSeedValidation, handleChange, handleSeedChange, updateValue, clearSeed };
+export {
+  handleValidation,
+  handleSeedValidation,
+  handleChange,
+  handleSeedChange,
+  updateValue,
+  clearSeed
+};

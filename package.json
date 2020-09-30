@@ -1,7 +1,7 @@
 {
   "name": "stacks-wallet-1",
   "description": "Stacks Wallet",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "author": {
     "name": "Blockstack PBC",
     "url": "https://www.blockstack.org"
@@ -59,7 +59,7 @@
     "bip32": "1.0.4",
     "bip39": "2.5.0",
     "bitcoinjs-lib": "4.0.5",
-    "blockstack": "18.1.0",
+    "blockstack": "18.1.1",
     "blockstack-ui": "0.0.52",
     "c32check": "0.0.6",
     "connected-react-router": "5.0.1",
@@ -88,17 +88,17 @@
     "react-dom": "16.13.1",
     "react-hot-loader": "4.5.1",
     "react-powerplug": "1.0.0-rc.1",
-    "react-redux": "5.1.1",
+    "react-redux": "^5.1.2",
     "react-router": "4.2.0",
     "react-router-dom": "4.2.2",
-    "react-router-redux": "5.0.0-alpha.6",
+    "react-router-redux": "^5.0.0-alpha.9",
     "react-spring": "6.1.8",
     "reakit": "0.15.10",
-    "redux": "4.0.1",
+    "redux": "^4.0.5",
     "redux-persist": "5.10.0",
     "redux-persist-electron-storage": "2.0.0",
     "redux-persist-middleware": "1.0.1",
-    "redux-thunk": "2.2.0",
+    "redux-thunk": "^2.3.0",
     "reselect": "4.0.0",
     "rwlock": "5.0.0",
     "setimmediate": "1.0.5",
@@ -163,8 +163,8 @@
     "css-loader": "2.1.1",
     "detect-port": "1.2.3",
     "electron": "6.1.0",
-    "electron-builder": "22.8.0",
-    "electron-builder-squirrel-windows": "22.8.1",
+    "electron-builder": "22.9.1",
+    "electron-builder-squirrel-windows": "22.9.1",
     "electron-devtools-installer": "3.1.1",
     "electron-rebuild": "2.0.1",
     "enzyme": "3.9.0",
@@ -286,5 +286,9 @@
     "test-e2e": "node -r @babel/register ./internals/scripts/CheckBuiltsExist.js && cross-env NODE_ENV=test testcafe electron:./ ./test/e2e/HomePage.e2e.js",
     "test-e2e-live": "node -r @babel/register ./internals/scripts/CheckBuiltsExist.js && cross-env NODE_ENV=test testcafe-live electron:./ ./test/e2e/HomePage.e2e.js",
     "test-watch": "yarn test --watch"
+  },
+  "resolutions": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   }
 }
