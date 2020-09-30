@@ -97,7 +97,7 @@ export class WithdrawBTCModal extends React.Component {
     } = this.state;
     return (
       <Modal
-        title="Withdraw BTC"
+        title="转出BTC"
         hide={hide}
         maxWidth="560px"
         p={0}

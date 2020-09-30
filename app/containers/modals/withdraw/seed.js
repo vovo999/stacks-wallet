@@ -87,7 +87,7 @@ export const SeedScreen = connect(
       <>
         <TopSection>
           <Type fontSize={4} lineHeight={1.5}>
-            Please enter your seed phrase to sign this transaction.
+            输入助记
           </Type>
         </TopSection>
         <BottomSection>
@@ -125,7 +125,7 @@ export const SeedScreen = connect(
           )}
           <Flex justifyContent="center" pt={4} width={1}>
             <Button isLoading={processing} onClick={() => handleSubmit()}>
-              Continue
+              继续
             </Button>
           </Flex>
         </BottomSection>

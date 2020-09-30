@@ -52,12 +52,7 @@ const TopUpSection = connect(state => ({
       <Card>
         <Flex p={4} borderRight={1} borderColor="blue.mid" flexGrow={1}>
           <Type>
-<<<<<<< HEAD
             转账STX需要支付少量的BTC手续费。现有{satoshisToBtc(balance)} BTC可用于支付手续费
-=======
-            You need very small amounts of Bitcoin (BTC) to send Stacks (STX).
-            You currently have {satoshisToBtc(balance)} BTC available.
->>>>>>> feat/btc-withdraw
           </Type>
         </Flex>
         <Flex justifyContent="center" p={4}>
@@ -81,13 +76,12 @@ const WithdrawBTCSection = connect(state => ({
   type !== WALLET_TYPES.WATCH_ONLY ? (
     <Section>
       <Label pb={4} fontSize={2}>
-        Withdraw BTC
+        转出BTC
       </Label>
       <Card>
         <Flex p={4} borderRight={1} borderColor="blue.mid" flexGrow={1}>
           <Type>
-            You can withdraw {satoshisToBtc(balance)} BTC used for transaction
-            fees here.
+            现有{satoshisToBtc(balance)}BTC可转出
           </Type>
         </Flex>
         <Flex justifyContent="center" p={4}>
@@ -98,7 +92,7 @@ const WithdrawBTCSection = connect(state => ({
           >
             {({ bind }) => (
               <Button height="auto" py={2} {...bind}>
-                Withdraw {satoshisToBtc(balance)} BTC
+                转出{satoshisToBtc(balance)}BTC
               </Button>
             )}
           </OpenModal>

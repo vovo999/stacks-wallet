@@ -55,8 +55,7 @@ export const HardwareScreen = connect(
     return (
       <Flex flexDirection="column" alignItems="center" py={4}>
         <Type pb={6} fontSize={4}>
-          Connect your{" "}
-          {walletType === WALLET_TYPES.TREZOR ? "Trezor" : "Ledger"}
+          请连接{" "}{walletType === WALLET_TYPES.TREZOR ? "Trezor" : "Ledger"}硬件钱包
         </Type>
         <HardwareSteps
           steps={walletType === WALLET_TYPES.TREZOR ? trezorSteps : ledgerSteps}
@@ -75,7 +74,7 @@ export const HardwareScreen = connect(
                 }
               >
                 {// eslint-disable-next-line no-nested-ternary
-                processing ? "Signing..." : hasNext ? "Next" : "Sign transaction"}
+                processing ? "签字中..." : hasNext ? "下一步" : "确认签字"}
               </Button>
             </Flex>
           )}

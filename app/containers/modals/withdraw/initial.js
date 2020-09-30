@@ -51,7 +51,7 @@ export const InitialScreen = connect(
         }
       } catch (e) {
         console.log(e);
-        setErrors("btcAddress", "Invalid BTC address, please try again.");
+        setErrors("btcAddress", "请输入有效BTC地址");
       }
     };
 
@@ -59,13 +59,12 @@ export const InitialScreen = connect(
       <>
         <TopSection>
           <Type fontSize={4} lineHeight={1.5}>
-            Enter a Bitcoin address to withdraw {satoshisToBtc(balance)} BTC
-            from the Stacks Wallet.
+            输入收款BTC地址。转出{satoshisToBtc(balance)} BTC
           </Type>
         </TopSection>
         <BottomSection>
           <Input
-            placeholder="Enter a BTC address"
+            placeholder="输入BTC地址"
             width="100%"
             flexGrow={1}
             value={recipient}
@@ -78,7 +77,7 @@ export const InitialScreen = connect(
             <ErrorMessage>{errors.btcAddress}</ErrorMessage>
           ) : null}
           <Flex justifyContent="center" p={4} pb={0} width={1}>
-            <Button onClick={() => handleSubmit()}>Withdraw BTC</Button>
+            <Button onClick={() => handleSubmit()}>转出BTC</Button>
           </Flex>
         </BottomSection>
       </>

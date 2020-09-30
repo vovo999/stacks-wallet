@@ -38,14 +38,14 @@ export const ConfirmScreen = connect(
                 borderColor="blue.mid"
                 width="50%"
               >
-                <Type fontSize={3}>Please confirm your transaction.</Type>
+                <Type fontSize={3}>请确认转账</Type>
               </Flex>
               <Flex p={4} flexDirection="column">
-                <Label>Amount to withdraw</Label>
-                <Type fontSize={4}>{satoshisToBtc(balance - fee)} STX</Type>
-                <Label pt={3}>Fee</Label>
+                <Label>金额</Label>
+                <Type fontSize={4}>{satoshisToBtc(balance - fee)} BTC</Type>
+                <Label pt={3}>转账手续费</Label>
                 <Type>{satoshisToBtc(fee)} BTC</Type>
-                <Label pt={3}>Recipient</Label>
+                <Label pt={3}>收款地址</Label>
                 <Type>{recipient}</Type>
               </Flex>
             </Flex>
@@ -62,7 +62,7 @@ export const ConfirmScreen = connect(
             }
           >
             {// eslint-disable-next-line no-nested-ternary
-            processing ? "Processing..." : "Confirm withdraw"}
+            processing ? "处理中..." : "确认"}
           </Button>
         </Flex>
       </>
