@@ -73,7 +73,7 @@ class NewSeedScreen extends Component {
             color="hsl(242, 56%, 75%)"
             maxWidth="600px"
           >
-            每个Stacks钱包都有相对应的24单词助记。有助记才能开启和使用钱包。
+            每个Stacks钱包都有相对应的24个单词助记。有助记才能开启和使用钱包。
           </Type>
           <Type
             pt={2}
@@ -85,7 +85,7 @@ class NewSeedScreen extends Component {
             color="white"
             maxWidth="600px"
           >
-            注意：保护好您的助记。如果丢失，你将永久性失去你的Stacks币。
+            注意：保护好您的助记。如果丢失，将永久性失去您的Stacks币。
             <a href="https://docs.blockstack.org/org/secureref.html" target='_blank'>关于钱包安全（英文）</a>
           </Type>
           <Type

@@ -152,7 +152,7 @@ class ConfirmSeedScreen extends Component {
             color="hsl(242, 56%, 75%)"
             maxWidth="600px"
           >
-            请按顺序重复之前记下的助记
+            请按顺序重复输入之前记下的助记
           </Type>
           <Seed
             seedPhrase={seed}

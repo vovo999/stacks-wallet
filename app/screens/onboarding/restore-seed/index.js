@@ -235,7 +235,7 @@ class RestoreSeedScreen extends Component {
             color="hsl(242, 56%, 75%)"
             maxWidth="600px"
           >
-            请按顺序输入24单词助记恢复钱包
+            请按顺序输入24个单词助记恢复钱包
           </Type>
           {/* <SeedLengthSelector length={this.state.seedLength} handleClick={this.handleSeedLengthClick} /> */}
           <Seed
