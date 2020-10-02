@@ -77,7 +77,7 @@ export default class RestoreSeed extends Component<Props> {
             <Item
               title="Trezor"
               icon={TrezorLogo}
-              subtitle="Trezor One 或 Model T"
+              subtitle="Trezor One"
               to={ROUTES.RESTORE_TREZOR}
             />
             <Item
