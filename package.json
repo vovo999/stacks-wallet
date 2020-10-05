@@ -8,7 +8,7 @@
   },
   "browserslist": "electron 1.6",
   "build": {
-    "productName": "Stacks Wallet",
+    "productName": "Stacks钱包",
     "appId": "org.blockstack.stacks-wallet",
     "files": [
       "app/dist/",
