@@ -63,9 +63,9 @@ const installExtensions = async () => {
 };
 
 const createWindow = async () => {
-  if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
-    await installExtensions();
-  }
+  // if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
+  //   await installExtensions();
+  // }
 
   const mainWindowState = windowState({
     defaultWidth: 1024,
@@ -87,8 +87,8 @@ const createWindow = async () => {
             nodeIntegration: true,
           }
         : {
-            nodeIntegration: false,
-            contextIsolation: true,
+            nodeIntegration: true,
+            contextIsolation: false,
             webSecurity: true,
             preload: path.join(__dirname, 'dist/renderer.prod.js'),
           },

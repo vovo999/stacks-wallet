@@ -19,7 +19,12 @@ export const Welcome: React.FC = () => {
       <OnboardingText>
         Manage your STX holdings, and earn Bitcoin by participating in Stacking
       </OnboardingText>
-      <OnboardingButton mt="extra-loose" onClick={() => history.push(routes.CREATE)}>
+      <OnboardingButton
+        mt="extra-loose"
+        data-test="btn-new-wallet"
+        data-xxx
+        onClick={() => history.push(routes.CREATE)}
+      >
         Create a new wallet
       </OnboardingButton>
       <OnboardingButton onClick={() => history.push(routes.RESTORE)} mt="base" mode="secondary">
